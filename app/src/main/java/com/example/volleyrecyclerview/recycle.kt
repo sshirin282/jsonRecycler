@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 
 class recycle(val context: Context,val  list: List<DataModel>)
     : RecyclerView.Adapter<recycle.ViewHolder>() {
@@ -33,9 +34,10 @@ class recycle(val context: Context,val  list: List<DataModel>)
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-      //  val contact: List<DataModel> = .get(position)
-        //Log.d("Size of User Foods", list.get(position).name.toString());
         holder.textView.text =list.get(position).name
+        Glide.with(context)
+                .load(list.get(position).image)
+                .into(holder.image1)
         }
     }
 
